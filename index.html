@@ -19,24 +19,25 @@
     </header>
     <div class="calculator">
         <div class="calculation">
-            <div class="prev"></div>
-            <div class="current"></div>
+            <div data-prev class="prev"></div>
+            <div data-current class="current"></div>
+            <!-- <div class="display">0</div> -->
         </div>
-        <button class="bigger">RES</button>
-        <button class="bigger">DEL</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>-</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>0</button>
-        <button class="bigger equal">=</button>
+        <button class="bigger reset btn" data-reset>RES</button>
+        <button class="bigger delete btn" data-delete>DEL</button>
+        <button class="nr btn" data-number>1</button>
+        <button class="nr btn" data-number>2</button>
+        <button class="nr btn" data-number>3</button>
+        <button class="plus operator btn" data-key='plus' data-operator>+</button>
+        <button class="nr btn" data-number>4</button>
+        <button class="nr btn" data-number>5</button>
+        <button class="nr btn" data-number>6</button>
+        <button class="minus operator btn" data-key='minus' data-operator>-</button>
+        <button class="nr btn" data-number>7</button>
+        <button class="nr btn" data-number>8</button>
+        <button class="nr btn" data-number>9</button>
+        <button class="nr btn" data-number>0</button>
+        <button class="bigger equal btn" data-equal>=</button>
     </div>
     <script src="app.js"></script>
 </body>
