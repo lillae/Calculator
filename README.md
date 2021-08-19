@@ -6,5 +6,6 @@ JavaScript Calculator
 
 https://elated-liskov-466470.netlify.app/
 
-![Calculator](https://user-images.githubusercontent.com/61046794/130114729-09089fe7-2c64-41b0-a4b4-c4cec47bc475.png)
+![Calculator](https://user-images.githubusercontent.com/61046794/130115002-b4913a69-fb70-4296-af19-23922dad8517.png)
+
 
