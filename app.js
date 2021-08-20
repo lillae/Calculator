@@ -8,6 +8,7 @@ const delBtn = document.querySelector('[data-delete]');
 const numberBtn = document.querySelectorAll('[data-number]');
 const operationBtn = document.querySelectorAll('[data-operator]');
 const equalBtn = document.querySelector('[data-equal]');
+const toggle = document.querySelector('.toggle');
 
 class Calculator {
   constructor(prevText, currentText) {
@@ -20,6 +21,7 @@ class Calculator {
     this.prev = '';
     this.current = '';
     this.operator = undefined;
+    this.updateDisplay();
   }
 
   delete() {
@@ -29,18 +31,20 @@ class Calculator {
       this.prev = '';
       this.operator = undefined;
     }
+    this.updateDisplay();
   }
 
   appendNumber(nr) {
     this.current = this.current.toString() + nr.toString();
+    this.updateDisplay();
+  }
+
+  toggleNegative() {
+    this.current = -1 * this.current;
+    calculator.updateDisplay();
   }
 
   chooseOperation(operator) {
-    if (this.current === '' && operator == '-') {
-      this.appendNumber('-');
-      return;
-    }
-
     if (this.current === '') return;
     if (this.prev !== '') {
       this.calculate();
@@ -49,6 +53,7 @@ class Calculator {
     this.operator = operator;
     this.prev = this.current;
     this.current = '';
+    this.updateDisplay();
   }
 
   calculate() {
@@ -71,6 +76,8 @@ class Calculator {
     this.current = result;
     this.operator = undefined;
     this.prev = '';
+
+    this.updateDisplay();
   }
 
   getDisplayNr(nr) {
@@ -81,7 +88,7 @@ class Calculator {
 
   updateDisplay() {
     this.currentText.innerText = this.getDisplayNr(this.current);
-    // this.prevText.innerText = this.prev;
+
     if (this.operator != null) {
       this.prevText.innerText = ` ${this.getDisplayNr(this.prev)} ${
         this.operator
@@ -97,29 +104,27 @@ const calculator = new Calculator(prevText, currentText);
 numberBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     calculator.appendNumber(btn.innerText);
-    calculator.updateDisplay();
   });
 });
 
 operationBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     calculator.chooseOperation(btn.innerText);
-
-    calculator.updateDisplay();
   });
 });
 
 equalBtn.addEventListener('click', (btn) => {
   calculator.calculate();
-  calculator.updateDisplay();
 });
 
 resetBtn.addEventListener('click', (btn) => {
   calculator.clear();
-  calculator.updateDisplay();
 });
 
 delBtn.addEventListener('click', (btn) => {
   calculator.delete();
-  calculator.updateDisplay();
+});
+
+toggle.addEventListener('click', (btn) => {
+  calculator.toggleNegative();
 });
