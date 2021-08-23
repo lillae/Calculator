@@ -47,7 +47,7 @@ const Calculator = {
     prevText.innerText = '';
     currentText.innerText = '';
     operationBtn.innerText = null;
-    updateDisplay();
+    Calculator.updateDisplay();
   },
 
   deleteHandler: () => {
@@ -57,29 +57,29 @@ const Calculator = {
       prevText.innerText = '';
       operationBtn.innerText = null;
     }
-    updateDisplay();
+    Calculator.updateDisplay();
   },
 
   appendNumber: (nr) => {
     currentText.innerText = currentText.innerText.toString() + nr.toString();
-    updateDisplay();
+    Calculator.updateDisplay();
   },
 
   toggleNegativeHandler: () => {
     currentText.innerText = -1 * currentText.innerText;
-    updateDisplay();
+    Calculator.updateDisplay();
   },
 
   chooseOperation: (operator) => {
     if (currentText.innerText === '') return;
     if (prevText.innerText !== '') {
-      calculate();
+      Calculator.calculate();
     }
 
     operationBtn.innerText = operator;
     prevText.innerText = currentText.innerText;
     currentText.innerText = '';
-    updateDisplay();
+    Calculator.updateDisplay();
   },
 
   calculate: () => {
@@ -103,7 +103,7 @@ const Calculator = {
     operationBtn.innerText = null;
     prevText.innerText = '';
 
-    updateDisplay();
+    Calculator.updateDisplay();
   },
 
   getDisplayNr: (nr) => {
@@ -113,10 +113,10 @@ const Calculator = {
   },
 
   updateDisplay: () => {
-    currentText.innerText = getDisplayNr(currentText.innerText);
+    currentText.innerText = Calculator.getDisplayNr(currentText.innerText);
 
     if (operationBtn.innerText != null) {
-      prevText.innerText = ` ${getDisplayNr(prevText.innerText)} ${
+      prevText.innerText = ` ${Calculator.getDisplayNr(prevText.innerText)} ${
         operationBtn.innerText
       }`;
     } else {
