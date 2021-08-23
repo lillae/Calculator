@@ -20,7 +20,7 @@ class Calculator {
   clear() {
     this.prev = '';
     this.current = '';
-    this.operator = undefined;
+    this.operator = null;
     this.updateDisplay();
   }
 
@@ -29,7 +29,7 @@ class Calculator {
     if (this.current === '') {
       this.current = this.prev;
       this.prev = '';
-      this.operator = undefined;
+      this.operator = null;
     }
     this.updateDisplay();
   }
@@ -74,7 +74,7 @@ class Calculator {
         return;
     }
     this.current = result;
-    this.operator = undefined;
+    this.operator = null;
     this.prev = '';
 
     this.updateDisplay();
