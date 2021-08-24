@@ -37,6 +37,24 @@ header {
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(80px, auto) repeat(5, 80px);
   color: white;
+  .calculation {
+    grid-column: 1 / -1;
+    background: linear-gradient(260deg, #093637, #44a08d);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 0.5rem;
+    word-wrap: break-word;
+    word-break: break-all;
+    .prev {
+      font-size: 1.5rem;
+    }
+    .current {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
   button {
     outline: none;
     background: rgba(53, 53, 53, 0.5);
@@ -46,38 +64,15 @@ header {
     font-weight: bold;
     font-size: 1.5rem;
     font-family: 'Space Mono', monospace;
+
     &:hover {
       background: rgba(85, 85, 85, 0.5);
     }
-    .bigger {
-      grid-column: span 2;
-    }
-    .equal {
-      grid-column: 2 / -1;
-    }
   }
-}
-
-.calculation {
-  grid-column: 1 / -1;
-  background: linear-gradient(260deg, #093637, #44a08d);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-around;
-  padding: 0.5rem;
-  word-wrap: break-word;
-  word-break: break-all;
-  .prev {
-    font-size: 1.5rem;
+  .bigger {
+    grid-column: span 2;
   }
-  .current {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-}
-
-.calculator {
-  button {
+  .equal {
+    grid-column: 2 / -1;
   }
 }
