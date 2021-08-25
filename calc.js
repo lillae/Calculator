@@ -1,13 +1,31 @@
 'use strict';
 
-const calculator = document.querySelector('.calculator');
-
 const Calculator = {
   prevText: null,
   currentText: null,
   lastOperator: null,
+  button: [
+    {className: 'bigger reset', value: 'RES'},
+    {className: 'bigger delete', value: 'DEL'},
+    {className: 'nr', value: '1'},
+    {className: 'nr', value: '2'},
+    {className: 'nr', value: '3'},
+    {className: 'operator', value: '+'},
+    {className: 'nr', value: '4'},
+    {className: 'nr', value: '5'},
+    {className: 'nr', value: '6'},
+    {className: 'operator', value: '-'},
+    {className: 'nr', value: '7'},
+    {className: 'nr', value: '8'},
+    {className: 'nr', value: '9'},
+    {className: 'toggle', value: '- / +'},
+    {className: 'nr', value: '0'},
+    {className: 'bigger equal', value: '='},
+  ],
 
   init() {
+    this.renderCalculator();
+
     this.prevText = document.querySelector('.prev');
     this.currentText = document.querySelector('.current');
 
@@ -96,34 +114,38 @@ const Calculator = {
     this.currentText.innerText = result;
     this.prevText.innerText = '';
   },
-};
 
-const renderCalculator = () => {
-  let output = `
-  <div class="calculation">
-    <div class="prev"></div>
-    <div class="current"></div>
-  </div>
-  <button class="bigger reset btn">RES</button>
-  <button class="bigger delete btn">DEL</button>
-  <button class="nr btn">1</button>
-  <button class="nr btn">2</button>
-  <button class="nr btn">3</button>
-  <button class="plus operator btn">+</button>
-  <button class="nr btn">4</button>
-  <button class="nr btn">5</button>
-  <button class="nr btn">6</button>
-  <button class="minus operator btn">-</button>
-  <button class="nr btn">7</button>
-  <button class="nr btn">8</button>
-  <button class="nr btn">9</button>
-  <button class="btn toggle">- / +</button>
-  <button class="nr btn">0</button>
-  <button class="bigger equal btn">=</button>
-  `;
-  calculator.insertAdjacentHTML('afterbegin', output);
-};
+  renderCalculator: function () {
+      this.generateCalculationHtmlElement();
+      this.generateButtonHtmlElement();
+  },
 
-renderCalculator();
+  generateCalculationHtmlElement: function () {
+    const calculationDiv = document.createElement('div');
+    calculationDiv.className = 'calculation';
+
+    const prevDiv = document.createElement('div');
+    prevDiv.className = 'prev';
+
+    const currentDiv = document.createElement('div');
+    currentDiv.className = 'current';
+
+    calculationDiv.append(prevDiv, currentDiv);
+
+    document.getElementById('calculator').append(calculationDiv);
+  },
+
+  generateButtonHtmlElement: function () {
+    const calculatorDiv = document.getElementById('calculator');
+
+    this.button.forEach(v => {
+      const button = document.createElement('button');
+      button.className = 'btn ' + v.className;
+      button.innerText = v.value;
+
+      calculatorDiv.append(button);
+    })
+  }
+};
 
 Calculator.init();
