@@ -5,7 +5,7 @@
   "main": "public/js/calc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./src/scss/calc.scss:./public/css/calc.css --style compressed"
+    "build": "sass ./src/scss/calc.scss:./public/css/calc.css --style compressed && uglifyjs --compress --mangle -- ./src/js/calc.js > ./public/js/calc.min.js\n"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,6 @@
   "homepage": "https://github.com/lillae/Calculator#readme",
   "devDependencies": {
     "sass": "^1.38.1",
-    "terser": "^5.7.2"
+    "uglify-js": "^3.14.1"
   }
 }
