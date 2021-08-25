@@ -1,0 +1,24 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "calculator",
+  "main": "public/js/calc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass ./src/scss/calc.scss:./public/css/calc.css --style compressed && uglifyjs --compress --mangle -- ./src/js/calc.js > ./public/js/calc.min.js\n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lillae/Calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lillae/Calculator/issues"
+  },
+  "homepage": "https://github.com/lillae/Calculator#readme",
+  "devDependencies": {
+    "sass": "^1.38.1",
+    "uglify-js": "^3.14.1"
+  }
+}
