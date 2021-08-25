@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lillae/Calculator#readme",
   "devDependencies": {
-    "sass": "^1.38.1"
+    "sass": "^1.38.1",
+    "terser": "^5.7.2"
   }
 }
