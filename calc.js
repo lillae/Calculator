@@ -1,7 +1,5 @@
 'use strict';
 
-const calculator = document.querySelector('.calculator');
-
 const Calculator = {
   prevText: null,
   currentText: null,
@@ -97,33 +95,5 @@ const Calculator = {
     this.prevText.innerText = '';
   },
 };
-
-const renderCalculator = () => {
-  let output = `
-  <div class="calculation">
-    <div class="prev"></div>
-    <div class="current"></div>
-  </div>
-  <button class="bigger reset btn">RES</button>
-  <button class="bigger delete btn">DEL</button>
-  <button class="nr btn">1</button>
-  <button class="nr btn">2</button>
-  <button class="nr btn">3</button>
-  <button class="plus operator btn">+</button>
-  <button class="nr btn">4</button>
-  <button class="nr btn">5</button>
-  <button class="nr btn">6</button>
-  <button class="minus operator btn">-</button>
-  <button class="nr btn">7</button>
-  <button class="nr btn">8</button>
-  <button class="nr btn">9</button>
-  <button class="btn toggle">- / +</button>
-  <button class="nr btn">0</button>
-  <button class="bigger equal btn">=</button>
-  `;
-  calculator.insertAdjacentHTML('afterbegin', output);
-};
-
-renderCalculator();
 
 Calculator.init();
